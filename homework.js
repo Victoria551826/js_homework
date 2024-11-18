@@ -1,17 +1,18 @@
-function checkProbabilityTheory(count)
-{
-    let evenCount = 0;
-    const min = 100;
-    const max = 1001;
-    for (let i = 1; i <= count; i++) {
-        const num = Math.floor(Math.random() * (max - min)) + min;
-        if (num % 2 == 0) {
-            evenCount++;
-        }
+const flower = {
+    type: 'Tulip',
+    color: 'Red',
+    height: 50
+};
+
+flower.getInfo = function() {
+    console.log("Gdtting object info:");
+    var keys = Object.keys(this);
+    for(let i = 0; i < keys.length; i++){
+        console.log(keys[i], " = ", this[keys[i]]);
     }
-    console.log('Number of generated: ', count);
-    console.log('Even count: ', evenCount);
-    console.log('Odd count: ', count - evenCount);
-    console.log('Even %: ', (evenCount / count) * 100);
-}
-checkProbabilityTheory(999);
+    
+};
+
+flower.getInfo();
+flower.owner = "Vika";
+flower.getInfo();
