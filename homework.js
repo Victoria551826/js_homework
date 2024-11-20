@@ -1,18 +1,43 @@
-const flower = {
-    type: 'Tulip',
-    color: 'Red',
-    height: 50
-};
-
-flower.getInfo = function() {
-    console.log("Gdtting object info:");
-    var keys = Object.keys(this);
-    for(let i = 0; i < keys.length; i++){
-        console.log(keys[i], " = ", this[keys[i]]);
+var services = {
+    "стрижка": "60",
+    "гоління": "80",
+    "Миття голови": "100",
+    price: function() {
+        var values = Object.values(this);
+        var result = 0;
+        for(let i = 0; i < values.length; i++) {
+            var num = Number(values[i]);
+            if(!isNaN(num)){
+                result += num;
+            }
+        }
+        console.log('Price: ', result);
+    },
+    minPrice: function() {
+        var values = Object.values(this);
+        var result = Number(values[0]);
+        for(let i = 1; i < values.length; i++) {
+            var num = Number(values[i]);
+            if(!isNaN(num) && num < result){
+                result = num;
+            }
+        }
+        console.log('Min Price: ', result);
+    },
+    maxPrice: function() {
+        var values = Object.values(this);
+        var result = Number(values[0]);
+        for(let i = 1; i < values.length; i++) {
+            var num = Number(values[i]);
+            if(!isNaN(num) && num > result){
+                result = num;
+            }
+        }
+        console.log('Max Price: ', result);
     }
-    
 };
+    
 
-flower.getInfo();
-flower.owner = "Vika";
-flower.getInfo();
+services.price();
+services.minPrice();
+services.maxPrice();
