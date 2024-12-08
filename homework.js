@@ -1,31 +1,12 @@
 var arr = [
-    {
-        userName:"Test",
-        lastName:"Test",
-        email:"test.test@gmail.com"
-    },
-    {
-        userName:"Dmitro",
-        lastName:"Porohov",
-        email:"dmitro.porohov@yahoo.com"
-    },
-    {
-        userName:"Andrii",
-        lastName:"",
-        email:"andrii@mail.ru" // Нам такі не підходять
-    },
-    {
-        userName:"Vasyl`",
-        lastName:"Zhadan",
-        email:"vasia@gmail.com"
-    },
+    'Wonderful', 'Joyful', 'Happiness', 'Time', 'Task', 'Apple', 'Thanks', 'Independent'
 ];
 
-function ValidateEmails(inArr){
-    const pattern = /^[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)?@(?:gmail\.com|yahoo\.com)$/;
+function ValidateArray(inArr){
+    const pattern = /\b[^aA\s]{6,}\b/;
     var outArr = [];
     inArr.forEach(element => {
-        const result = element.email.match(pattern);
+        const result = element.match(pattern);
         if(result){
             outArr.push(element);
         }
@@ -33,4 +14,4 @@ function ValidateEmails(inArr){
     return outArr;
 }
 
-console.log(ValidateEmails(arr));
+console.log(ValidateArray(arr));
