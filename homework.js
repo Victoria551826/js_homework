@@ -1,43 +1,36 @@
-var services = {
-    "стрижка": "60",
-    "гоління": "80",
-    "Миття голови": "100",
-    price: function() {
-        var values = Object.values(this);
-        var result = 0;
-        for(let i = 0; i < values.length; i++) {
-            var num = Number(values[i]);
-            if(!isNaN(num)){
-                result += num;
-            }
-        }
-        console.log('Price: ', result);
+var arr = [
+    {
+        userName:"Test",
+        lastName:"Test",
+        email:"test.test@gmail.com"
     },
-    minPrice: function() {
-        var values = Object.values(this);
-        var result = Number(values[0]);
-        for(let i = 1; i < values.length; i++) {
-            var num = Number(values[i]);
-            if(!isNaN(num) && num < result){
-                result = num;
-            }
-        }
-        console.log('Min Price: ', result);
+    {
+        userName:"Dmitro",
+        lastName:"Porohov",
+        email:"dmitro.porohov@yahoo.com"
     },
-    maxPrice: function() {
-        var values = Object.values(this);
-        var result = Number(values[0]);
-        for(let i = 1; i < values.length; i++) {
-            var num = Number(values[i]);
-            if(!isNaN(num) && num > result){
-                result = num;
-            }
-        }
-        console.log('Max Price: ', result);
-    }
-};
-    
+    {
+        userName:"Andrii",
+        lastName:"",
+        email:"andrii@mail.ru" // Нам такі не підходять
+    },
+    {
+        userName:"Vasyl`",
+        lastName:"Zhadan",
+        email:"vasia@gmail.com"
+    },
+];
 
-services.price();
-services.minPrice();
-services.maxPrice();
+function ValidateEmails(inArr){
+    const pattern = /^[a-zA-Z0-9]+(?:.[a-zA-Z0-9]+)?@(?:gmail\.com|yahoo\.com)$/;
+    var outArr = [];
+    inArr.forEach(element => {
+        const result = element.email.match(pattern);
+        if(result){
+            outArr.push(element);
+        }
+    });
+    return outArr;
+}
+
+console.log(ValidateEmails(arr));
